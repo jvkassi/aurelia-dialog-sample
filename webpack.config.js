@@ -7,7 +7,8 @@ var webpack = require('webpack');
 
 module.exports = {
   devServer: {
-    host: 'localhost',
+    host: '0.0.0.0',
+    port: process.env.PORT || 3000
   },
   entry: {
     main: [
@@ -21,20 +22,11 @@ module.exports = {
   plugins: [
     new AureliaWebpackPlugin({
       includeSubModules: [{
-          moduleId: 'aurelia-dialog',
-          include: /[^\.]\.(js|html)$/
-        }, {
-          moduleId: 'aurelia-auth'
-        }, {
-          moduleId: 'aurelia-polymer'
-        }
-
+          moduleId: 'aurelia-dialog'
+        }, 
       ],
       contextMap: {
-        // 'spoonx/aurelia-api': 'node_modules/aurelia-api/dist/commonjs/index.js',
-        'aurelia-dialog': 'node_modules/aurelia-dialog/dist/commonjs/aurelia-dialog.js',
-        'aurelia-polymer': 'node_modules/aurelia-polymer/dist/commonjs/index.js',
-        'aurelia-auth': 'node_modules/aurelia-auth/dist/commonjs/aurelia-auth.js'
+        'aurelia-dialog': 'node_modules/aurelia-dialog/dist/commonjs/aurelia-dialog.js'
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
