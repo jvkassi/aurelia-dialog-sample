@@ -7,10 +7,6 @@ import {
   DialogService
 } from 'aurelia-dialog';
 
-import {
-  Prompt
-} from './prompt';
-
 @inject(DialogService)
 export class Welcome {
   heading = 'Welcome to the Aurelia Navigation App';
@@ -35,7 +31,7 @@ export class Welcome {
   submit() {
     this.previousValue = this.fullName;
     this.dialogService.open({
-      viewModel: Prompt,
+      viewModel: 'prompt',
       model: `Are you ${this.fullName} ?`
     })
     .catch((err) => {
