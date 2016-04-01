@@ -59,7 +59,14 @@ npm run prod
 
 The production bundle includes all files that are required for deployment.
 
+## Demo
+
+This run fine on heroku ( dev mode )
+
+http://aurelia-dialog-sample.herokuapp.com/
+
 ## Testing
+
 To run the unit tests:
 
 ```shell
